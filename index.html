@@ -4,10 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
 </head>
+
 <body>
-    <h1>Online Shop</h1>
+
+<header class="header">
+        <h1 class="logo">Online Shop</h1>
+        <a href="cart/index.html" class="cart-icon" aria-label="Go to cart">
+            <!-- Cart SVG Icon from https://heroicons.com -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cart-svg">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+</svg>
+</a>
+</header>
+
+<main>
+    <section class="carousel">
+        <div class="card">
+            <div class="image-placeholder">Featured Product</div>
+            <h2>Featured Product</h2>
+            <p>$199.99</p>
+            <a href="product/index.html" class="button--primary">View Product</a>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2 class="section-title">Featured Products</h2>
+
+        <div class="product-grid" id="product-list">
+            <!--  product items will be rendered here with JavaScript  -->
+        </div>
+    </section>
+</main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Online Shop.</p>
+    </footer>
 
     <script src="js/main.js"></script>
     
