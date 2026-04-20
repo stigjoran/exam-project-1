@@ -11,6 +11,8 @@ const productRating = document.querySelector("#product-rating");
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
 
+let currentProduct;
+
 console.log(productId);
 
 async function fetchProduct() {
@@ -28,23 +30,30 @@ async function fetchProduct() {
 }
 
 async function init() {
-    const product = await fetchProduct();
+    currentProduct= await fetchProduct();
 
-    if (product) {
-        productImage.src = product.image.url;
-        productImage.alt = product.image.alt;
-        productTitle.textContent = product.title;
-        productPrice.textContent = `$${product.price}`;
+    if (currentProduct) {
+        productImage.src = currentProduct.image.url;
+        productImage.alt = currentProduct.image.alt;
+        productTitle.textContent = currentProduct.title;
+        productPrice.textContent = `$${currentProduct.price}`;
 
-        if (product.rating) {
-        productRating.textContent = `Rating: ${product.rating} / 5`;
+        if (currentProduct.rating) {
+        productRating.textContent = `Rating: ${currentProduct.rating} / 5`;
         } else {
             productRating.textContent = "No rating";
         } 
         
-        productDescription.textContent = product.description;
-        productTags.innerHTML = product.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+        productDescription.textContent = currentProduct.description;
+        productTags.innerHTML = currentProduct.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
     }
 }
+
+document.querySelector(".add-to-cart-button").addEventListener("click", () => {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(currentProduct);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log("Added to cart:", currentProduct);
+});
 
 init();

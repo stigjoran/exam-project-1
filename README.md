@@ -59,11 +59,23 @@ Made product cards clickable and linked to product page using ID in URL
 Updated homepage product styling card to match dynamic content
 
 Built dynamic product page
-Readt product ID from URL
+Read product ID from URL
 Fetched single product from Noroff API
-Rendered product image, title, proce, description and tags
+Rendered product image, title, price, description and tags
 Handled rating display based on available API data
 Adjusted product page layout for responsive screens
+
+Built shopping cart functionality with localStorage
+Added Add to Cart from product page
+Stored multiple products in cart
+Rendered cart items dynamically on cart page
+Displayed product image, title and price in cart
+Calculated total price dynamically
+Added remove item functionality
+Added clear cart functionality
+
+Completed shopping cart functionality with localStorage
+Implemented Add to Cart, dynamic cart rendering, total calculation, remove items and clear cart
 
 
 

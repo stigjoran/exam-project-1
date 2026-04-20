@@ -26,57 +26,11 @@
     <section class="cart-page">
         <h2 class="section-title">Cart</h2>
 
-        <div class="cart-items">
-            <article class="cart-item card">
-                <div class="cart-item-image image-placeholder">Image</div>
-
-                <div class="cart-item-details">
-                    <h3>Bluetooth Speaker</h3>
-                    <p class="cart-item-price">$199.99</p>
-
-                    <div class="quantity-controls">
-                        <button type="button" class="quantity-button">-</button>
-                        <span class="quantity-value">1</span>
-                        <button type="button" class="quantity-button">+</button>
-                    </div>
-
-                    <button type="button" class="remove-button">Remove</button>
-                </div>
-            </article>
-
-
-            <article class="cart-item card">
-                <div class="cart-item-image image-placeholder">Image</div>
-                <div class="cart-item-details">
-                    <h3>Black Watch</h3>
-                    <p class="cart-item-price">$299.99</p>
-                    <div class="quantity-controls">
-                        <button type="button" class="quantity-button">-</button>
-                        <span class="quantity-value">1</span>
-                        <button type="button" class="quantity-button">+</button>
-                    </div>
-                    <button type="button" class="remove-button">Remove</button>
-                </div>
-            </article>
-
-                <article class="cart-item card">
-                <div class="cart-item-image image-placeholder">Image</div>
-                <div class="cart-item-details">
-                    <h3>Wireless Earbuds</h3>
-                    <p class="cart-item-price">$199.99</p>
-                    <div class="quantity-controls">
-                        <button type="button" class="quantity-button">-</button>
-                        <span class="quantity-value">1</span>
-                        <button type="button" class="quantity-button">+</button>
-                    </div>
-                    <button type="button" class="remove-button">Remove</button>
-                </div>
-            </article>
-        </div>
+        <div class="cart-items" id="cart-items"></div>
 
         <section class="cart-summary card">
-            <h3 class="cart-total">Total $699.97</h3>
-                <button type="button" class="clear-cart-button">Clear Cart</button>
+            <h3 class="cart-total" id="cart-total"></h3>
+                <button type="button" class="clear-cart-button" id="clear-cart-button">Clear Cart</button>
                 <a href="../checkout/index.html" class="button--primary checkout-button">Proceed to Checkout</a>
         </section>
     </section>
@@ -86,7 +40,7 @@
         <p>&copy; 2026 Online Shop.</p>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
     
 </body>
 </html>

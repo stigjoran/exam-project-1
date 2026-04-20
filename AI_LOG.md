@@ -21,3 +21,11 @@ Used AI to:
 -Debug mismatches between HTML IDs and JavaScript querySelector.
 -Understand conditional rendering for rating values from the API.
 
+20.04.26
+Used AI to:
+-Understand how to store product data i localStorage
+-Understand how to make a product data available across product page logic
+-Get step by step explanation of rendering cart items dynamically from localStorage
+-Debug JavaScript errors related to variable names, functions and missing brackets
+-Understand how to calculate total price dynamically from cart data
+Understand how to remove single items and clear full cart using JavaScript
