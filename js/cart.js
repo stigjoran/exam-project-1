@@ -55,4 +55,4 @@ clearCartButton.addEventListener("click", () => {
     cart = [];
     localStorage.setItem("cart", JSON.stringify(cart));
     location.reload();
-});
+}); 

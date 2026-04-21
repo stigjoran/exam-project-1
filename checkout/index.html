@@ -75,19 +75,14 @@
 
         <section class="checkout-panel summary-panel">
             <h3 class="summary-title">Your order</h3>
-            <div class="summary-row">
-                <span>Product</span>
-                <span>x 3</span>
-            </div>
 
-            <div class="summary-row">
-                <span>Price</span>
-                <span>$199</span>
+            <div id="checkout-items">
+                <!-- Cart items will be rendered here with JavaScript -->
             </div>
 
             <div class="summary-row total-row">
                 <span>Total</span>
-                <span>$597</span>
+                <span id="checkout-total"></span>
             </div>
         </section>
 
@@ -99,7 +94,7 @@
         <p>&copy; 2026 Online Shop.</p>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <script src="../js/checkout.js"></script>
     
 </body>
 </html>

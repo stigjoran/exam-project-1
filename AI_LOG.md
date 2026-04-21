@@ -29,3 +29,13 @@ Used AI to:
 -Debug JavaScript errors related to variable names, functions and missing brackets
 -Understand how to calculate total price dynamically from cart data
 Understand how to remove single items and clear full cart using JavaScript
+
+
+21.04.2026
+Used AI to:
+
+Understand how to render checkout summary from cart data in localStorage
+Understand how to calculate checkout total dynamically
+Debug issues with rendering checkout items and total
+Understand how to connect complete purchase flow tp success page
+Understand how to clear cart data after complete purchase
