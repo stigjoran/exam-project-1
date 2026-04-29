@@ -85,7 +85,17 @@ Connected Complete Purchase button to success page
 Cleared cart after complete purchase
 Core e-commerce flow complete
 
+29.04.2026:
+Improved product page functionality:
+Display discounted price when available
+Render product tags dynamically
+Render product reviews dynamically
+Handle emty review state
+Added share product functionality
+Fixed bugs related to rendering and data handleing
 
+Stared carousel functionality on homepage:
+Prepared dynamic carousel rendering from API data
 
 
 ## Assets

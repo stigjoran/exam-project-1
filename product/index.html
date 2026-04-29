@@ -27,10 +27,16 @@
 
         <div class="product-info">
             <h2 id="product-title" class="product-title"></h2>
-            <p class="product-price" id="product-price">$199.99</p>
-            <p class="product-rating" id="product-rating">Rating: 4.9 / 5</p>
+            <p class="product-price" id="product-price"></p>
+            <p class="product-price" id="product-discounted-price"></p>
+            <p class="product-rating" id="product-rating"></p>
+
             <button class="button--primary add-to-cart-button">
                 Add to Cart
+            </button>
+
+            <button type="button" class="share-button" id="share-button">
+                Share Product
             </button>
         </div>
     </section>
@@ -49,10 +55,8 @@
 
     <section>
         <h3 class="section-title">Reviews</h3>
-        <article class="review-card card">
-            <h4>John</h4>
-            <p>Great product!</p>
-            </article>
+        <div id="product-reviews">
+        </div>
     </section>
 </main>
 

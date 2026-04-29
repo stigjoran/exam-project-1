@@ -10,6 +10,10 @@ const productTags = document.querySelector("#product-tags");
 const productRating = document.querySelector("#product-rating");
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
+const productDiscountedPrice = document.querySelector("#product-discounted-price");
+const productReviews = document.querySelector("#product-reviews");
+const shareButton = document.querySelector("#share-button");
+const addToCartButton = document.querySelector(".add-to-cart-button");
 
 let currentProduct;
 
@@ -36,24 +40,73 @@ async function init() {
         productImage.src = currentProduct.image.url;
         productImage.alt = currentProduct.image.alt;
         productTitle.textContent = currentProduct.title;
-        productPrice.textContent = `$${currentProduct.price}`;
+        productPrice.textContent = `Price: $${currentProduct.price}`;
+
+        if (currentProduct.discountedPrice < currentProduct.price) {
+            productDiscountedPrice.textContent = `Discounted price: $${currentProduct.discountedPrice}`;}
+            else {
+                productDiscountedPrice.textContent = "";
+            }
 
         if (currentProduct.rating) {
         productRating.textContent = `Rating: ${currentProduct.rating} / 5`;
         } else {
             productRating.textContent = "No rating";
-        } 
-        
+        }
+
         productDescription.textContent = currentProduct.description;
-        productTags.innerHTML = currentProduct.tags.map(tag => `<span class="tag">${tag}</span>`).join("");
+        productTags.innerHTML = currentProduct.tags.map(tag => `<span class="tag">${tag}</span>`).join(""); 
+
+        if (currentProduct.reviews.length === 0) {
+            productReviews.innerHTML = "<p>No reviews yet.</p>";
+        } else {
+            productReviews.innerHTML = "";
+
+            for (let i = 0; i < currentProduct.reviews.length; i++) {
+                const review = currentProduct.reviews[i];
+
+                productReviews.innerHTML +=`
+                <article class="review-card card">
+                <h4>${review.username}</h4>
+                <p>Rating: ${review.rating} / 5</p>
+                <p>${review.description}</p>
+                </article>
+                `;
+            }
+        }
     }
+
 }
 
-document.querySelector(".add-to-cart-button").addEventListener("click", () => {
+
+
+addToCartButton.addEventListener("click", () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(currentProduct);
+
+    const existingProduct = cart.find(product => product.id === currentProduct.id);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+
+    const productToAdd = {
+        ...currentProduct,
+        quantity: 1
+    };
+
+    cart.push(productToAdd);
+}
+
     localStorage.setItem("cart", JSON.stringify(cart));
-    console.log("Added to cart:", currentProduct);
+    console.log("Added to cart:", productToAdd);
+});
+
+shareButton.addEventListener("click", () => {
+    const url= window.location.href;
+
+    navigator.clipboard.writeText(url);
+
+    alert("Product link copied!");
 });
 
 init();

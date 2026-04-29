@@ -27,7 +27,7 @@
             <h2 class="checkout-heading">Payment details</h2>
             <p class="checkout-note">Required fields marked with *</p>
 
-            <form class="checkout-form">
+            <form id="checkout-form" class="checkout-form">
                 <label for="first-name">First Name *</label>
                 <input type="text" id="first-name" name="first-name" required/>
 
@@ -86,7 +86,8 @@
             </div>
         </section>
 
-        <a href="../success/index.html" class="button--primary checkout-complete-button">Complete Purchase</a>
+        <button type="submit" form="checkout-form" class="button--primary complete-purchase-button">Complete Purchase</button>
+        
     </section>
     </main>
 
