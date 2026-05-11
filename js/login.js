@@ -1,15 +1,19 @@
-console.log("login page started");
+
 
 const form = document.querySelector("#login-form");
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
+const loginMessage = document.querySelector("#login-message");
 
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-const email = emailInput.value;
-const password = passwordInput.value;
+const email = emailInput.value.trim();
+const password = passwordInput.value.trim();
 
+loginMessage.textContent ="Logging in...";
+
+try {
 const response = await fetch("https://v2.api.noroff.dev/auth/login", {
     method: "POST",
     headers: {
@@ -22,10 +26,19 @@ const response = await fetch("https://v2.api.noroff.dev/auth/login", {
 });
 const data = await response.json();
 
+if (!response.ok) {
+    throw new Error(data.errors?.[0]?.message || "Login failed" );
+}
+
 localStorage.setItem("token", data.data.accessToken);
 localStorage.setItem("username", data.data.name);
+localStorage.setItem("userEmail", data.data.email);
 
-console.log(data);
-
+loginMessage.textContent = "Login successful!";
 window.location.href = "../index.html";
+
+} catch (error) {
+    loginMessage.textContent = error.message;
+}
+
 });

@@ -9,9 +9,10 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
 <header class="header">
-        <h1 class="logo">Online Shop</h1>
+        <a href="../index.html" class="logo">Online Shop</a>
 
         <a href="../cart/index.html" class="cart-icon" aria-label="Go to cart">
         <!-- Cart SVG Icon from https://heroicons.com -->
@@ -21,10 +22,10 @@
 </a>
 </header>
 
-<main>
+<main id="main-content">
     <section class="checkout-page">
         <div class="checkout-panel">
-            <h2 class="checkout-heading">Payment details</h2>
+            <h1 class="checkout-heading">Payment details</h1>
             <p class="checkout-note">Required fields marked with *</p>
 
             <form id="checkout-form" class="checkout-form">
@@ -46,7 +47,7 @@
                 <input type="text" id="postal-code" name="postal-code" required />
                 
                 <label for="city">City / Town *</label>
-                <input type="text" id="city" name="city" required    />
+                <input type="text" id="city" name="city" required />
 
                 <label for="phone">Phone *</label>
                 <input type="text" id="phone" name="phone" required />
@@ -57,6 +58,7 @@
         </div>
 
         <section class="checkout-panel payment-panel">
+            <h2 class="payment-title">Payment method</h2>
             <label class="payment-option">
                 <input type="radio" name="payment-method" checked />
                 <span>Card</span>
@@ -74,7 +76,7 @@
         </section>
 
         <section class="checkout-panel summary-panel">
-            <h3 class="summary-title">Your order</h3>
+            <h2 class="summary-title">Your order</h2>
 
             <div id="checkout-items">
                 <!-- Cart items will be rendered here with JavaScript -->
@@ -86,6 +88,7 @@
             </div>
         </section>
 
+        <p id="checkout-error" class="form-error"></p>
         <button type="submit" form="checkout-form" class="button--primary complete-purchase-button">Complete Purchase</button>
         
     </section>

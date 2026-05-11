@@ -1,4 +1,4 @@
-console.log("cart page started");
+
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const cartItems = document.querySelector("#cart-items");
@@ -10,6 +10,7 @@ function renderCart() {
 
     if (cart.length === 0) {
         cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        cartTotal.textContent = "Total $0.00";
         return;
     }
 

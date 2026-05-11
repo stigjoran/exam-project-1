@@ -1,11 +1,9 @@
-console.log("Checkout page started");
-
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 const checkoutForm = document.querySelector("#checkout-form"); 
 const checkoutTotal = document.querySelector("#checkout-total");
 const checkoutItems = document.querySelector("#checkout-items");
+const checkoutError = document.querySelector("#checkout-error");
 
-console.log(cart);
 
 function renderCheckoutTotal() {
     let total = 0;
@@ -23,6 +21,7 @@ function renderCheckout(products) {
 
     if (products.length === 0) {
         checkoutItems.innerHTML = "<p>Your cart is empty.</p>";
+        checkoutTotal.textContent = "$0.00";
         return;
     }
 
@@ -41,16 +40,16 @@ function renderCheckout(products) {
 if (checkoutForm) {
     checkoutForm.addEventListener("submit", (event) => {
         event.preventDefault();
+
+        if (cart.length === 0) {
+            checkoutError.textContent = "Your cart is empty.";
+            return;
+        }
+
         localStorage.setItem("cart", JSON.stringify([]));
         window.location.href = "../success/index.html";
     });
 }
-
-checkoutForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    localStorage.setItem("cart", JSON.stringify([]));
-    window.location.href = "../success/index.html";
-});
 
     renderCheckout(cart);
     renderCheckoutTotal();

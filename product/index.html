@@ -9,9 +9,10 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
 <header class="header">
-        <h1 class="logo">Online Shop</h1>
+        <a href="../index.html" class="logo">Online Shop</a>
         <a href="../cart/index.html" class="cart-icon" aria-label="Go to cart">
             <!-- Cart SVG Icon from https://heroicons.com -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cart-svg">
@@ -20,13 +21,13 @@
 </a>
 </header>
 
-<main>
-    <a href="../index.html" class="back-link">← Back</a>
+<main id="main-content">
+    <a href="../index.html" class="back-link" aria-label="Back to homepage">← Back</a>
     <section class="product-page">
-        <img id="product-image" class="product-image" src="" alt="">
+        <img id="product-image" class="product-image" src="" alt="Product image">
 
         <div class="product-info">
-            <h2 id="product-title" class="product-title"></h2>
+            <h1 id="product-title" class="product-title"></h1>
             <p class="product-price" id="product-price"></p>
             <p class="product-price" id="product-discounted-price"></p>
             <p class="product-rating" id="product-rating"></p>
@@ -35,26 +36,26 @@
                 Add to Cart
             </button>
 
-            <button type="button" class="share-button" id="share-button">
+            <button type="button" class="share-button" id="share-button" aria-label="Share product">
                 Share Product
             </button>
         </div>
     </section>
 
     <section>
-        <h3 class="section-title">Description</h3>
+        <h2 class="section-title">Description</h2>
         <p class="product-description" id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc efficitur varius. Sed at ligula a enim efficitur commodo.</p>
     </section>
 
     <section>
-        <h3 class="section-title">Tags</h3>
+        <h2 class="section-title">Tags</h2>
         <div class="tag-list" id="product-tags">
             <!-- Tags will be populated by JavaScript -->   
         </div>
     </section>
 
     <section>
-        <h3 class="section-title">Reviews</h3>
+        <h2 class="section-title">Reviews</h2>
         <div id="product-reviews">
         </div>
     </section>

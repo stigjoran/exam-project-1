@@ -9,9 +9,11 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
 <header class="header">
-        <h1 class="logo">Online Shop</h1>
+        <a href="index.html" class="logo">Online Shop</a>
+        <p id="user-info"></p>
         <a href="cart/index.html" class="cart-icon" aria-label="Go to cart">
             <!-- Cart SVG Icon from https://heroicons.com -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="cart-svg">
@@ -20,8 +22,19 @@
 </a>
 </header>
 
-<main>
-    <section class="carousel">
+    <section class="hero">
+        <div class="hero-content">
+        <h1 class="hero-title">Welcome to Our Online Shop</h1>
+        <p class="hero-description">Discover the best products at unbeatable prices. Shop now and enjoy exclusive deals!</p>
+        <a href="#product-list" class="button--primary">Shop Now</a>
+        </div>
+    </section>
+
+<main id="main-content">
+
+
+    <h1 class="visually-hidden">Online Shop</h1>
+    <section class="carousel" aria-label="Featured product carousel">
         <button id="prev-button" type="button" class="carousel-btn">Previous</button>
 
         <div id="carousel-item" class="card carousel-content"></div>

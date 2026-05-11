@@ -1,4 +1,4 @@
-console.log("App started");
+
 
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
@@ -21,12 +21,11 @@ async function fetchProducts() {
 
             const data = await response.json();
 
-            console.log(data);
+            
 
             return data.data;
 
     } catch (error) {
-        console.error("Error:", error);
         return [];
     }
 }
@@ -51,7 +50,7 @@ function renderProducts(products) {
 
 function renderCarousel() {
     if (carouselProducts.length === 0) {
-        carouselItem.innerHTML = "<p>Loading...</p>"
+        carouselItem.innerHTML = "<p>Loading...</p>";
         return;
     }
 
@@ -65,6 +64,7 @@ function renderCarousel() {
     `;
 }
 
+if (nextButton) {
 nextButton.addEventListener("click", function () {
     currentIndex++;
 
@@ -74,6 +74,8 @@ nextButton.addEventListener("click", function () {
     renderCarousel();
 });
 
+}
+if (prevButton) {
 prevButton.addEventListener("click", function () {
     currentIndex--;
 
@@ -83,18 +85,43 @@ prevButton.addEventListener("click", function () {
     renderCarousel();
 });
 
+}
 
 
 /* Init is supposed to initialize the application */
     async function init() {
         const products = await fetchProducts();
 
-        console.log(products);
+        if (products.length === 0) {
+            productList.innerHTML = "<p>Could not load products.</p>";
+            carouselItem.innerHTML = "<p>Could not load featured products.</p>";
+            return;
+        }
+
+        
 
         carouselProducts = products.slice(0, 3);
         renderCarousel();
 
         renderProducts(products.slice(0, 12));
+    }
+
+    const userInfo = document.querySelector("#user-info");
+    const username = localStorage.getItem("username");
+
+    if (userInfo && username) {
+        userInfo.textContent = `Logged in as ${username} `;
+
+        const logoutButton = document.createElement("button");
+        logoutButton.textContent = "Logout";
+
+        logoutButton.addEventListener("click", () => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("username");
+            localStorage.removeItem("userEmail");
+            location.reload();
+        });
+        userInfo.appendChild(logoutButton);
     }
 
         init(); 
