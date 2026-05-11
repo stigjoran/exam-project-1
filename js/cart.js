@@ -9,7 +9,10 @@ function renderCart() {
     cartItems.innerHTML = "";
 
     if (cart.length === 0) {
-        cartItems.innerHTML = "<p>Your cart is empty.</p>";
+        cartItems.innerHTML = `
+        <p>Your cart is empty.</p>
+        <a href="../index.html" class="button--primary">Back to shop</a>
+        `;
         cartTotal.textContent = "Total $0.00";
         return;
     }
@@ -23,15 +26,15 @@ function renderCart() {
 
             <div class="cart-item-details">
                 <h3>${product.title}</h3>
-                <p class="cart-item-price">$${product.price}</p>
+                <p class="cart-item-price">$${product.discountedPrice}</p>
 
                 <div class="quantity-controls">
-                    <button class="decrease-button" data-id="${product.id}">-</button>
+                    <button type="button" class="decrease-button" data-id="${product.id}">-</button>
                     <span class="quantity-value">${product.quantity}</span>
-                    <button class="increase-button" data-id="${product.id}">+</button>
+                    <button type="button" class="increase-button" data-id="${product.id}">+</button>
                 </div>
 
-                <button class="remove-button" data-id="${product.id}">Remove</button>
+                <button type="button" class="remove-button" data-id="${product.id}">Remove</button>
             </div>
         </div>
         `; 
@@ -43,7 +46,7 @@ function renderTotal() {
     let total = 0;
 
     for (let i = 0; i < cart.length; i++) {
-        total += cart[i].price * cart[i].quantity;
+        total += cart[i].discountedPrice * cart[i].quantity;
     }
     cartTotal.textContent = `Total $${total.toFixed(2)}`;
 }

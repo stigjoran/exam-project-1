@@ -9,7 +9,7 @@ function renderCheckoutTotal() {
     let total = 0;
 
     for (let i = 0; i < cart.length; i++) {
-        total+= cart[i].price * cart[i].quantity;
+        total+= cart[i].discountedPrice * cart[i].quantity;
     }
 
     checkoutTotal.textContent = `$${total.toFixed(2)}`;
@@ -20,7 +20,10 @@ function renderCheckout(products) {
     checkoutItems.innerHTML = "";
 
     if (products.length === 0) {
-        checkoutItems.innerHTML = "<p>Your cart is empty.</p>";
+        checkoutItems.innerHTML = `
+        <p>Your cart is empty.</p>
+        <a href="../index.html" class="button--primary continue-shopping-button">Back to shop</a>
+        `;
         checkoutTotal.textContent = "$0.00";
         return;
     }
@@ -31,7 +34,7 @@ function renderCheckout(products) {
         checkoutItems.innerHTML += `
         <div class="summary-row">
             <span>${product.title} x ${product.quantity}</span>
-            <span>$${(product.price * product.quantity).toFixed(2)}</span>
+            <span>$${(product.discountedPrice * product.quantity).toFixed(2)}</span>
         </div>
         `;
     }
@@ -40,6 +43,8 @@ function renderCheckout(products) {
 if (checkoutForm) {
     checkoutForm.addEventListener("submit", (event) => {
         event.preventDefault();
+
+        checkoutError.textContent = "";
 
         if (cart.length === 0) {
             checkoutError.textContent = "Your cart is empty.";

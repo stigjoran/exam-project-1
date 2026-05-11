@@ -115,12 +115,13 @@ addToCartButton.addEventListener("click", () => {
     addToCartButton.textContent = "Added to cart."
 });
 
-shareButton.addEventListener("click", () => {
-    const url= window.location.href;
-
-    navigator.clipboard.writeText(url);
-
-    alert("Product link copied!");
+shareButton.addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert("Product link copied!");
+    } catch (error) {
+        console.error("Failed to copy product link:", error);
+    }
 });
 
 init();
