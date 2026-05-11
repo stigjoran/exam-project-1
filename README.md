@@ -108,6 +108,13 @@ Noroff API
 - Final testing and bug fixes
 
 
+11.05.2026
+
+- Completed checkout and success page
+- Implemented order flow from cart to success
+- Cleared cart after purchase
+- Added empty state handelig fro checkout
+
 
 ## Assets
 - cart icon from Heroicons (https://heroicons.com/)

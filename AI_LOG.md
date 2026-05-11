@@ -55,6 +55,13 @@ Used AI to:
 - Debug small issues in the checkout flow.
 - Improve understanding of event listeners and DOM updates
 
+
+11.05.2026
+Used AI to:
+- Understand checkout flow and order handling
+- Debug issues with empty cart state
+- Ensure correct use og localStorage across pages
+
 Important:
 AI was not used to generate core application logic
 All code was written manually by me and implemented based on my own understanding
