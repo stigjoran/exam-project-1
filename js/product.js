@@ -112,7 +112,13 @@ addToCartButton.addEventListener("click", () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    addToCartButton.textContent = "Added to cart."
+
+    addToCartButton.textContent = "Added to cart"
+
+    setTimeout(() => {
+        addToCartButton.textContent = "Add to cart";
+    }, 2000);
+
 });
 
 shareButton.addEventListener("click", async () => {
@@ -121,6 +127,7 @@ shareButton.addEventListener("click", async () => {
         alert("Product link copied!");
     } catch (error) {
         console.error("Failed to copy product link:", error);
+        alert("Could not copy product link");
     }
 });
 
