@@ -113,7 +113,17 @@ Noroff API
 - Completed checkout and success page
 - Implemented order flow from cart to success
 - Cleared cart after purchase
-- Added empty state handelig fro checkout
+- Added empty state handling from checkout
+
+
+13.05.2026
+
+- Polish and cleanup across the project
+- Improved cart and checkout totals to use disqounted price
+- Added feedback when adding products to cart
+- Improved empty state handeling for cart and checkout
+- Removed unused file (success.js)
+- Reviewed project structure, accessibility and consistency 
 
 
 ## Assets
