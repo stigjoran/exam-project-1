@@ -3,10 +3,10 @@
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 const productList = document.querySelector("#product-list");
+
 const carouselItem = document.querySelector("#carousel-item");
 const prevButton = document.querySelector("#prev-button");
 const nextButton = document.querySelector("#next-button");
-
 let currentIndex = 0;
 let carouselProducts = [];
 
